@@ -16,7 +16,7 @@ function HomeLayout() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/company" element={<Company />} />
-            <Route path="/job" element={<Job />} />
+            <Route path="/job/:jobId" element={<Job />} />
           </Routes>
         </Suspense>
       </div>

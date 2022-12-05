@@ -54,31 +54,29 @@ function Home() {
   }
 
   return (
-    <div className="w-full h-full mt-6 max-w-5xl m-auto">
-      <div className="flex space-x-6">
-        <div className="w-1/4">
-          <div className="p-3 shadow rounded-md bg-white">
-            <button
-              type="button"
-              className="w-full py-1 mb-2 bg-sky-500 text-white rounded shadow text-xl font-medium hover:shadow-md"
-            >
-              <SearchOutlined className="mr-1" /> Find Job
-            </button>
-            <Filter />
-          </div>
+    <div className="mt-6 flex space-x-6">
+      <div className="w-1/4">
+        <div className="p-3 shadow rounded-md bg-white">
+          <button
+            type="button"
+            className="w-full py-1 mb-2 bg-sky-500 text-white rounded shadow text-xl font-medium hover:shadow-md"
+          >
+            <SearchOutlined className="mr-1" /> Find Job
+          </button>
+          <Filter />
         </div>
-        <div className="w-3/4">
-          {jobs.map((job) => (
-            <JobItem key={job.name} job={job} />
-          ))}
-          <div className="py-2 shadow rounded bg-white flex justify-center">
-            <Pagination
-              current={page}
-              onChange={handleChangePage}
-              total={500}
-              showSizeChanger={false}
-            />
-          </div>
+      </div>
+      <div className="w-3/4">
+        {jobs.map((job) => (
+          <JobItem key={job.name} job={job} />
+        ))}
+        <div className="py-2 shadow rounded bg-white flex justify-center">
+          <Pagination
+            current={page}
+            onChange={handleChangePage}
+            total={500}
+            showSizeChanger={false}
+          />
         </div>
       </div>
     </div>
