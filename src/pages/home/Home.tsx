@@ -56,7 +56,7 @@ function Home() {
   return (
     <div className="mt-6 flex space-x-6">
       <div className="w-1/4">
-        <div className="p-3 shadow rounded-md bg-white">
+        <div className="p-4 shadow rounded-md bg-white">
           <button
             type="button"
             className="w-full py-1 mb-2 bg-sky-500 text-white rounded shadow text-xl font-medium hover:shadow-md"

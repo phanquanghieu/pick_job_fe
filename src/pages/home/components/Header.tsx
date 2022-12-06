@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 function Header() {
   return (
-    <div className="h-12 shadow bg-white bg- sticky top-0">
+    <div className="h-12 shadow bg-white bg- sticky top-0 z-50">
       <div className="w-full h-full max-w-5xl m-auto">
         <div className="w-full h-full flex justify-between items-center">
           <div className="h-full flex items-center">
@@ -25,19 +25,31 @@ function Header() {
                   Company
                 </div>
               </Link>
-              <Link to="/job">
+              <Link to="/account">
                 <div className="px-3 py-2 flex items-center hover:text-sky-500">
                   Profile
                 </div>
               </Link>
             </div>
           </div>
-          <div className="h-8 bg-slate-100 rounded-full shadow flex">
-            <img
-              src="https://static.topcv.vn/user_avatars/trhwMHMXa5vt4sAkuq1H_630bcb93768d7_av.jpg"
-              className="h-8 h-8 rounded-full"
-            />
-            <div className="flex items-center px-2">phanquanghieu</div>
+          <div className='flex items-center text-lg'>
+            <Link to="/login">
+              <div className="px-3 py-2 flex items-center hover:text-sky-500">
+                Login
+              </div>
+            </Link>
+            <Link to="/register">
+              <div className="px-3 py-2 flex items-center hover:text-sky-500">
+                Register
+              </div>
+            </Link>
+            <div className="h-8 bg-slate-100 rounded-full shadow flex">
+              <img
+                src="https://static.topcv.vn/user_avatars/trhwMHMXa5vt4sAkuq1H_630bcb93768d7_av.jpg"
+                className="h-8 w-8 rounded-full"
+              />
+              <div className="flex items-center px-2">phanquanghieu</div>
+            </div>
           </div>
         </div>
       </div>

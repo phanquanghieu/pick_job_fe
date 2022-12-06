@@ -54,7 +54,7 @@ function Job() {
         </div>
         <div className="w-1/3">
           <div className="py-3 px-4 rounded shadow bg-white">
-            <div className="text-2xl mr-3 mb-4 font-medium">Job details</div>
+            <div className="text-xl mr-3 mb-4 font-medium">Job details</div>
             <div className="mb-4 flex justify-between">
               <div className="flex">
                 <DollarCircleOutlined className="text-2xl mr-3 text-sky-500" />
