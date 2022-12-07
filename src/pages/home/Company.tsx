@@ -36,13 +36,15 @@ function Company() {
 
       <div className="flex space-x-6">
         <div className="w-1/2">
-          <div className="p-3 rounded shadow bg-white">ddd</div>
+          <div className="py-3 px-4 rounded shadow bg-white">
+            <div className="text-xl mr-3 mb-4 font-medium">
+              Company Introduction
+            </div>
+          </div>
         </div>
         <div className="w-1/2">
           <div className="py-3 px-4 rounded shadow bg-white">
-            <div className="text-2xl mr-3 mb-4 font-medium">
-              company details
-            </div>
+            <div className="text-xl mr-3 mb-4 font-medium">Recruit</div>
           </div>
         </div>
       </div>

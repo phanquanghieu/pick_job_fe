@@ -1,6 +1,6 @@
 import React, { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import Footer from './components/Footer'
+import Footer from 'components/Footer'
 import Header from './components/Header'
 
 const Home = lazy(() => import('pages/home/Home'))
@@ -10,6 +10,7 @@ const Login = lazy(() => import('pages/home/Login'))
 const Register = lazy(() => import('pages/home/Register'))
 const Account = lazy(() => import('pages/home/Account'))
 const Profile = lazy(() => import('pages/home/Profile'))
+const AppliedJob = lazy(() => import('pages/home/AppliedJob'))
 
 function HomeLayout() {
   return (
@@ -26,6 +27,7 @@ function HomeLayout() {
             <Route path="/account" element={<Account />}>
               <Route index element={<Navigate to="profile" />} />
               <Route path="profile" element={<Profile />} />
+              <Route path="applied-job" element={<AppliedJob />} />
             </Route>
           </Routes>
         </Suspense>

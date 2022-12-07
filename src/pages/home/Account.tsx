@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Suspense } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { ProfileOutlined, SendOutlined } from '@ant-design/icons'
 
@@ -60,7 +60,9 @@ function Account() {
         </div>
         <div className="w-3/4">
           <div className="py-3 px-4 rounded shadow bg-white">
-            <Outlet />
+            <Suspense fallback={<div>load</div>}>
+              <Outlet />
+            </Suspense>
           </div>
         </div>
       </div>
