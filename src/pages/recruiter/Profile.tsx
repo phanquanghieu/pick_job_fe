@@ -36,12 +36,12 @@ function Profile() {
   return (
     <>
       <div className="sticky top-0 z-10">
-        <div className="px-4 py-3 text-xl mb-4 font-medium bg-white">
-          Company Profile
+        <div className="h-14 px-4 bg-white rounded-md shadow flex justify-between items-center">
+          <div className="text-xl font-medium">Company Profile</div>
         </div>
       </div>
-      <div className="overflow-auto">
-        <div>
+      <div className="py-4 overflow-auto">
+        <div className="p-4 pt-6 rounded-md shadow bg-white">
           <Form
             labelCol={{ span: 4 }}
             wrapperCol={{ span: 16 }}

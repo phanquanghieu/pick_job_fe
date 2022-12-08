@@ -13,7 +13,7 @@ function RecruiterLayout() {
       <div className="w-1/5 bg-white rounded-md shadow">
         <Sidebar />
       </div>
-      <div className="w-4/5 bg-white rounded-md shadow overflow-auto">
+      <div className="w-4/5 rounded-md overflow-auto">
         <Suspense fallback={<div>load</div>}>
           <Routes>
             <Route index element={<Navigate to="profile" />} />
