@@ -1,6 +1,6 @@
-import Footer from 'components/Footer'
 import React, { lazy, Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
+import Loader from 'components/Loader'
 import Sidebar from './components/Sidebar'
 
 const Profile = lazy(() => import('pages/recruiter/Profile'))
@@ -14,7 +14,13 @@ function RecruiterLayout() {
         <Sidebar />
       </div>
       <div className="w-4/5 rounded-md overflow-auto">
-        <Suspense fallback={<div>load</div>}>
+        <Suspense
+          fallback={
+            <div className="h-full w-full">
+              <Loader />
+            </div>
+          }
+        >
           <Routes>
             <Route index element={<Navigate to="profile" />} />
             <Route path="profile" element={<Profile />}></Route>

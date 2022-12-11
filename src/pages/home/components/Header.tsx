@@ -1,7 +1,17 @@
+import { Dropdown, Menu } from 'antd'
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import local from 'utils/local'
 
 function Header() {
+  const user = local.getUser()
+  const navigate = useNavigate()
+  const handleLogout = () => {
+    local.clear()
+    toast.success('Logout success')
+    navigate('/')
+  }
   return (
     <div className="h-12 shadow bg-white bg- sticky top-0 z-50">
       <div className="w-full h-full max-w-5xl m-auto">
@@ -32,24 +42,46 @@ function Header() {
               </Link>
             </div>
           </div>
-          <div className='flex items-center text-lg'>
-            <Link to="/login">
-              <div className="px-3 py-2 flex items-center hover:text-sky-500">
-                Login
-              </div>
-            </Link>
-            <Link to="/register">
-              <div className="px-3 py-2 flex items-center hover:text-sky-500">
-                Register
-              </div>
-            </Link>
-            <div className="h-8 bg-slate-100 rounded-full shadow flex">
-              <img
-                src="https://static.topcv.vn/user_avatars/trhwMHMXa5vt4sAkuq1H_630bcb93768d7_av.jpg"
-                className="h-8 w-8 rounded-full"
-              />
-              <div className="flex items-center px-2">phanquanghieu</div>
-            </div>
+          <div className="flex items-center text-lg">
+            {user ? (
+              <Dropdown
+                menu={{
+                  items: [
+                    {
+                      key: '1',
+                      label: (
+                        <button className="w-full" onClick={handleLogout}>
+                          Logout
+                        </button>
+                      ),
+                    },
+                  ],
+                }}
+              >
+                <a onClick={(e) => e.preventDefault()}>
+                  <div className="h-8 border rounded-full shadow-sm flex cursor-pointer">
+                    <img
+                      src="https://static.topcv.vn/user_avatars/trhwMHMXa5vt4sAkuq1H_630bcb93768d7_av.jpg"
+                      className="h-8 w-8 rounded-full"
+                    />
+                    <div className="flex items-center px-2">{user.email}</div>
+                  </div>
+                </a>
+              </Dropdown>
+            ) : (
+              <>
+                <Link to="/login">
+                  <div className="px-3 py-2 flex items-center hover:text-sky-500">
+                    Login
+                  </div>
+                </Link>
+                <Link to="/register">
+                  <div className="px-3 py-2 flex items-center hover:text-sky-500">
+                    Register
+                  </div>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

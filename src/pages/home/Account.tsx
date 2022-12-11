@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { ProfileOutlined, SendOutlined } from '@ant-design/icons'
+import Loader from 'components/Loader'
 
 function Account() {
   const menus = [
@@ -60,7 +61,13 @@ function Account() {
         </div>
         <div className="w-3/4">
           <div className="py-3 px-4 rounded shadow bg-white">
-            <Suspense fallback={<div>load</div>}>
+            <Suspense
+              fallback={
+                <div className="h-full w-full">
+                  <Loader />
+                </div>
+              }
+            >
               <Outlet />
             </Suspense>
           </div>
