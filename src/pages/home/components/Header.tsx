@@ -61,7 +61,7 @@ function Header() {
                 <a onClick={(e) => e.preventDefault()}>
                   <div className="h-8 border rounded-full shadow-sm flex cursor-pointer">
                     <img
-                      src="https://static.topcv.vn/user_avatars/trhwMHMXa5vt4sAkuq1H_630bcb93768d7_av.jpg"
+                      src="https://yt3.ggpht.com/PA1QUYdy1Fl3ZRupLkqUhhCjIzQ980gxYp57ADXkppKlXKp9064leNhurzLCi9o3y1KnlNt1=s108-c-k-c0x00ffffff-no-rj"
                       className="h-8 w-8 rounded-full"
                     />
                     <div className="flex items-center px-2">{user.email}</div>

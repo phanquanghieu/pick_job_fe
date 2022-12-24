@@ -8,11 +8,11 @@ const api = axios.create({
 
 api.interceptors.request.use(
   (config: any) => {
-    console.log(config.headers['Content-Type'])
+    const token = local.getJwtToken()
     config.headers = {
-      Authorization: `Bearer ${local.getJwtToken()}`,
+      Authorization: token ? `Bearer ${local.getJwtToken()}` : null,
       Accept: 'application/json',
-      'Content-Type': 'application/json',
+      'Content-Type': config.headers['Content-Type'] ?? 'application/json',
     }
     config.paramsSerializer = (params: any) =>
       qs.stringify(params, { encode: false })
@@ -28,7 +28,7 @@ api.interceptors.response.use(
   (error, ...rest) => {
     if (error?.response?.status === 401) {
       local.clear()
-      window.location.reload()
+      // window.location.replace('/login')
     }
     console.error(error)
     return error.response.data

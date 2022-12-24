@@ -2,8 +2,10 @@ import React, { Suspense } from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { ProfileOutlined, SendOutlined } from '@ant-design/icons'
 import Loader from 'components/Loader'
+import local from 'utils/local'
 
 function Account() {
+  const user = local.getUser()
   const menus = [
     {
       label: 'Profile',
@@ -24,11 +26,11 @@ function Account() {
             <div className="">
               <div className="h-11 rounded-full flex">
                 <img
-                  src="https://static.topcv.vn/user_avatars/trhwMHMXa5vt4sAkuq1H_630bcb93768d7_av.jpg"
+                  src="https://yt3.ggpht.com/PA1QUYdy1Fl3ZRupLkqUhhCjIzQ980gxYp57ADXkppKlXKp9064leNhurzLCi9o3y1KnlNt1=s108-c-k-c0x00ffffff-no-rj"
                   className="h-11 w-11 rounded-full"
                 />
                 <div className="flex text-lg items-center px-2 pl-4">
-                  phanquanghieu
+                  {user.full_name ?? user.email}
                 </div>
               </div>
             </div>
@@ -60,17 +62,15 @@ function Account() {
           </div>
         </div>
         <div className="w-3/4">
-          <div className="py-3 px-4 rounded shadow bg-white">
-            <Suspense
-              fallback={
-                <div className="h-full w-full">
-                  <Loader />
-                </div>
-              }
-            >
-              <Outlet />
-            </Suspense>
-          </div>
+          <Suspense
+            fallback={
+              <div className="h-full w-full">
+                <Loader />
+              </div>
+            }
+          >
+            <Outlet />
+          </Suspense>
         </div>
       </div>
     </div>

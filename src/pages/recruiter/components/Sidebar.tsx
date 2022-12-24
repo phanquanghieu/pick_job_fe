@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProfileOutlined, SendOutlined } from '@ant-design/icons'
+import { ProfileOutlined, SendOutlined, UserOutlined } from '@ant-design/icons'
 import { Link, NavLink } from 'react-router-dom'
 import local from 'utils/local'
 
@@ -22,7 +22,7 @@ function Sidebar() {
       {
         label: 'Candidate',
         to: 'candidate',
-        icon: SendOutlined,
+        icon: UserOutlined,
       }
     )
   }

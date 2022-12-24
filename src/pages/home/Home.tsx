@@ -98,7 +98,7 @@ function Home() {
 }
 
 export default Home
-const PAGE_SIZE = 2
+const PAGE_SIZE = 5
 let sample = [
   {
     name: 'ddddd',

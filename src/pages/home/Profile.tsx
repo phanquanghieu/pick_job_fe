@@ -7,6 +7,7 @@ import {
 } from '@ant-design/icons'
 import dayjs from 'dayjs'
 import api from 'utils/api'
+import { toast } from 'react-toastify'
 
 function Profile() {
   const [profile, setProfile] = useState<any>(null)
@@ -25,8 +26,6 @@ function Profile() {
     values.birthday = values.birthday?.format('YYYY-MM-DD')
     let __file_id
     if (fileCV) {
-      console.log(fileCV)
-
       let formData = new FormData()
       formData.append('file', fileCV)
 
@@ -35,14 +34,16 @@ function Profile() {
           'Content-Type': 'multipart/form-data',
         },
       })
-      console.log(fileRes)
-      __file_id = fileRes?.data?.id
+
+      if (fileRes?.data?.id) values.__file_id = fileRes?.data?.id
     }
+    await api.post('/users/profile', values)
+    toast.success('Success')
     console.log('Success:', values, __file_id)
   }
 
   return (
-    <div>
+    <div className="py-3 px-4 rounded shadow bg-white">
       <div className="text-xl mr-3 mb-4 font-medium">Edit Profile</div>
       <div>
         {profile && (
@@ -82,21 +83,7 @@ function Profile() {
                   Download Current CV
                 </Button>
               )}
-              <label htmlFor="file-input">
-                <input
-                  className="hidden"
-                  type="file"
-                  onChange={(e) => {
-                    setFileCV(e.target?.files?.[0])
-                  }}
-                  id="file-input"
-                />
-                <div className="ant-btn flex items-center">
-                  <UploadOutlined className="w-5 h-5 -ml-1 mr-1" />
-                  <div>Select New CV</div>
-                </div>
-              </label>
-              {/* <Upload
+              <Upload
                 onRemove={() => {
                   setFileCV(undefined)
                 }}
@@ -111,7 +98,7 @@ function Profile() {
                 >
                   Select New CV
                 </Button>
-              </Upload> */}
+              </Upload>
             </Form.Item>
             <Form.Item wrapperCol={{ offset: 4, span: 16 }}>
               <button

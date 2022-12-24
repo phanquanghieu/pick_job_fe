@@ -3,22 +3,18 @@ import { DeleteOutlined, EditOutlined, PlusOutlined } from '@ant-design/icons'
 import { Button, Popconfirm, Table } from 'antd'
 import ModalJob from './components/ModalJob'
 import api from 'utils/api'
-import local from 'utils/local'
 import { toast } from 'react-toastify'
 
 function Job() {
-  const user = local.getUser()
   const [jobs, setJobs] = useState([])
   const [jobEdit, setJobEdit] = useState({})
   const [isShowModel, setIsShowModel] = useState(false)
   const [mode, setMode] = useState('')
 
   const fetchJobs = () => {
-    api
-      .get(`/jobs`, { params: { where: { __company_id: user.__company_id } } })
-      .then((res) => {
-        setJobs(res?.data)
-      })
+    api.get(`/jobs/company`).then((res) => {
+      setJobs(res?.data)
+    })
   }
 
   useEffect(() => {
